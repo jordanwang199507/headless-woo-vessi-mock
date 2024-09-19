@@ -53,12 +53,10 @@ const Subscribe = () => {
           },
         }
       );
-
-      if (response.status === 200) {
+      console.log(response.status);
+      if (response.status === 200 || response.status === 201) {
         setSuccess("Subscription successful!");
         setEmail(""); // Clear input field
-      } else {
-        setError("Subscription failed. Please try again.");
       }
     } catch (error) {
       console.error("Error details:", error.response); // Log detailed error for debugging
