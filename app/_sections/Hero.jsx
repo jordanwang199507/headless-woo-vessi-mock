@@ -5,10 +5,16 @@ import { shoes, heroText, socialMediaLight } from "@/app/_constant";
 import icons from "@/public/icons";
 import images from "@/public/images";
 import { useState } from "react";
+import { useRouter } from "next/navigation";
 
 const Hero = ({ siteInfo }) => {
   //   console.log(siteInfo);
   const [bigShoeImg, setBigShoeImg] = useState(images.bigShoe1);
+  const router = useRouter();
+  const handleToShopPage = () => {
+    // Navigate to the shop page
+    router.push("/shop");
+  };
   return (
     <section
       id="home"
@@ -26,7 +32,11 @@ const Hero = ({ siteInfo }) => {
         <p className="text-slate-gray  font-montserrat text-lg leading-8 mt-6 mb-10 sm:max-w-xl">
           {heroText.subText}
         </p>
-        <Button label={heroText.button1} iconURL={icons.rightArrow} />
+        <Button
+          label={heroText.button1}
+          iconURL={icons.rightArrow}
+          onClick={handleToShopPage}
+        />
         <div className="flex justify-start items-start flex-wrap w-full mt-20 gap-16">
           {heroText.statistics.map((stat) => (
             <div key={stat.label}>

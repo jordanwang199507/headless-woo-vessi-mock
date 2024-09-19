@@ -15,17 +15,13 @@ const PopularProductCard = ({ product }) => {
   return (
     <Link
       href={`/product/${product.id}`}
-      className="flex flex-1 flex-col items-center w-full max-sm:w-full cursor-pointer"
+      className="flex flex-1 flex-col items-start w-full max-sm:w-full cursor-pointer"
     >
       {/* product image */}
-      <div className="relative flex items-center justify-center w-full bg-card bg-contain bg-no-repeat bg-center">
-        <img
-          src={product.images[0].src}
-          alt={product.name}
-          className="w-[240px] h-[240px]"
-        />
+      <div className="relative flex items-center justify-center w-full bg-productCard bg-contain bg-no-repeat bg-center">
+        <img src={product.images[0].src} alt={product.name} />
         {product.sale_price && (
-          <img src={icons.sale} className="absolute top-0 right-0" />
+          <img src={icons.sale} className="absolute -top-5 -left-5" />
         )}
       </div>
 
@@ -49,7 +45,7 @@ const PopularProductCard = ({ product }) => {
         ))}
       </div>
       {/* product name */}
-      <h3 className="mt-4 uppercase text-2xl leading-normal font-semi-bold font-fascinate text-dark-gray tracking-wide">
+      <h3 className="mt-4 uppercase text-xl leading-normal font-bold font-montserrat text-dark-gray tracking-wide">
         {product.name}
       </h3>
       {/* product price */}
@@ -58,12 +54,12 @@ const PopularProductCard = ({ product }) => {
           <p className="leading-normal text-primary font-montserrat line-through text-xl">
             ${formatPrice(product.regular_price)}
           </p>
-          <p className="leading-normal text-primary font-montserrat font-semibold text-2xl">
+          <p className="leading-normal text-primary font-montserrat font-semibold text-xl">
             ${formatPrice(product.sale_price)}
           </p>
         </div>
       ) : (
-        <p className="leading-normal text-primary font-montserrat text-2xl">
+        <p className="leading-normal text-primary font-montserrat text-xl">
           ${formatPrice(product.regular_price)}
         </p>
       )}

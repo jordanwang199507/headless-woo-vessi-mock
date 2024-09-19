@@ -1,7 +1,7 @@
 import React from "react";
 import icons from "@/public/icons";
 
-const CartItemCard = ({ item, index, handleRemoveItem }) => {
+const CartItemCard = ({ item, index, handleRemoveItem, hideDelete, h, w }) => {
   const formatPrice = (price) => {
     return (parseFloat(price) || 0).toFixed(2);
   };
@@ -12,7 +12,11 @@ const CartItemCard = ({ item, index, handleRemoveItem }) => {
         <img
           src={item.product.images[0].src}
           alt={item.product.name}
-          className="h-[180px] w-[180px] max-md:h-[120px] max-md:w-[120px] bg-productCard rounded-lg bg-cover bg-center"
+          className={`${
+            h ? `h-[${h}] max-md:h-[${h}]` : `h-[180px] max-md:h-[120px]`
+          } ${
+            w ? `w-[${w}] max-md:w-[${w}]` : `w-[180px] max-md:w-[120px]`
+          } bg-productCard rounded-lg bg-cover bg-center`}
         />
         {item.product.sale_price && (
           <img
@@ -43,7 +47,9 @@ const CartItemCard = ({ item, index, handleRemoveItem }) => {
         </div>
         <button
           onClick={() => handleRemoveItem(index)} // Pass the index to remove
-          className="rounded-full p-2 bg-primary-400 mt-6 max-md:mt-0 hover:bg-primary-200"
+          className={`rounded-full p-2 bg-primary-400 mt-6 max-md:mt-0 hover:bg-primary-200 ${
+            hideDelete && "hidden"
+          }`}
         >
           <img src={icons.delete} alt="delete button" className="w-4 h-4" />
         </button>

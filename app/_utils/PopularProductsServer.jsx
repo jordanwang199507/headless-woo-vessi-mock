@@ -1,5 +1,5 @@
 import woocommerce from "@/app/_utils/woocommerce";
-import { PopularProducts } from "../_sections";
+import { PopularProducts } from "@/app/_sections";
 
 // Popular products are based on product with 5 stars review and has popular tag
 // popular tag can be set in WordPress Admin -> WooCommerce -> All Products -> Specifict Product

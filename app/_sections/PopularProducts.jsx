@@ -13,7 +13,7 @@ const PopularProducts = ({ popularProducts }) => {
           {popularProductText.subText}
         </p>
       </div>
-      <div className="mt-16 grid lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-2 grid-cols-1 sm:gap-4 gap-14">
+      <div className="mt-16 grid lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-2 grid-cols-1 gap-14">
         {popularProducts.map((product) => (
           <PopularProductCard product={product} key={product.name} />
         ))}

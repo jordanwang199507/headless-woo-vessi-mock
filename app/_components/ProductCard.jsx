@@ -2,7 +2,7 @@ import React from "react";
 import Link from "next/link";
 
 const ProductCard = ({ product }) => {
-  console.log(product);
+  //   console.log(product);
   const formatPrice = (price) => {
     return (parseFloat(price) || 0).toFixed(2);
   };

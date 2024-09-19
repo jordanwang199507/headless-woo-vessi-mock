@@ -111,7 +111,7 @@ export default async function Page({ params }) {
   };
 
   const organizedPosts = organizePosts(data);
-  console.log(organizedPosts);
+  //   console.log(organizedPosts);
 
   if (!post) {
     return <div>404 Page not found</div>;

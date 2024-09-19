@@ -10,7 +10,7 @@ import ReviewCard from "./ReviewCard";
 import BlogPostCard from "./BlogPostCard";
 import ProductCard from "./ProductCard";
 import CartItemCard from "./CartItemCard";
-
+import CheckoutForm from "./CheckoutForm";
 export {
   Nav,
   Button,
@@ -24,4 +24,5 @@ export {
   BlogPostCard,
   ProductCard,
   CartItemCard,
+  CheckoutForm,
 };

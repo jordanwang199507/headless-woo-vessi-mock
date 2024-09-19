@@ -1,10 +1,17 @@
+"use client";
 import React from "react";
 import images from "@/public/images";
 import icons from "@/public/icons";
 import { specialOfferText } from "@/app/_constant";
 import { Button } from "@/app/_components";
+import { useRouter } from "next/navigation";
 
 const SpecialOffers = () => {
+  const router = useRouter();
+  const handleToShopPage = () => {
+    // Navigate to the shop page
+    router.push("/shop");
+  };
   return (
     <section className="flex justify-between items-center max-xl:flex-col-reverse gap-10 max-container">
       <div className="flex-1">
@@ -18,7 +25,11 @@ const SpecialOffers = () => {
           {specialOfferText.subText}
         </p>
         <div className="flex flex-wrap gap-4 mt-11">
-          <Button label={specialOfferText.button1} iconURL={icons.rightArrow} />
+          <Button
+            label={specialOfferText.button1}
+            iconURL={icons.rightArrow}
+            onClick={handleToShopPage}
+          />
           <Button
             label={specialOfferText.button2}
             backgroundColor="bg-white"

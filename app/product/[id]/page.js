@@ -8,6 +8,6 @@ async function getProduct(id) {
 
 export default async function ProductPage({ params }) {
   const product = await getProduct(params.id);
-  console.log(product);
+  //   console.log(product);
   return <ProductContent product={product} />;
 }

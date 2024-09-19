@@ -11,6 +11,8 @@ import BlogsCotent from "./BlogsCotent";
 import BlogContent from "./BlogContent";
 import ShopContent from "./ShopContent";
 import ProductContent from "./ProductContent";
+import CartContent from "./CartContent";
+import CheckoutContent from "./CheckoutContent";
 
 export {
   Hero,
@@ -25,4 +27,6 @@ export {
   BlogContent,
   ShopContent,
   ProductContent,
+  CartContent,
+  CheckoutContent,
 };
