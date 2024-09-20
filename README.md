@@ -10,6 +10,7 @@
 [![deployed-on-Vercel](https://img.shields.io/badge/Deployed%20on-Vercel%20-orange)](https://vercel.com/)
 
 [🚙 Live Version](https://headless-woo-vessi-mock.vercel.app/)
+[📔Figma Design File](https://www.figma.com/design/U26gcB6V9CPJ1keZAwdca3/Vessi-Mock-Headless-WordPress?node-id=0-1&t=meEOeBYOxM9wEBhI-1)
 
 ## 📑 Table of Content
 - [👟 VessiMock](#-vessimock)
