@@ -39,7 +39,8 @@ const Subscribe = () => {
 
     try {
       const response = await axios.post(
-        "https://lightblue-magpie-945165.hostingersite.com/wp-json/newsletter/v2/subscribers",
+        process.env.NEXT_PUBLIC_WORDPRESS_API_URL +
+          "/wp-json/newsletter/v2/subscribers",
         {
           email: email,
           status: "subscribed",
