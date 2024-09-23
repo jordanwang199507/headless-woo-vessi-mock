@@ -4,7 +4,7 @@ import { BlogsCotent } from "@/app/_sections";
 
 export default async function BlogsServer() {
   const GET_MENU = gql`
-    query GetAllBlogs {
+    query GetAllBlogPost_${new Date().getTime()} {
       posts {
         nodes {
           title
@@ -25,8 +25,6 @@ export default async function BlogsServer() {
               caption
             }
           }
-
-          # Fetch categories
           categories {
             nodes {
               name
@@ -37,37 +35,36 @@ export default async function BlogsServer() {
       }
     }
   `;
+
   const { data } = await client.query({
     query: GET_MENU,
+    fetchPolicy: "network-only", // Ensure fresh data is fetched from network
   });
-  const organizePosts = (data) => {
-    const posts = data.posts.nodes.map((post) => {
-      return {
-        title: post.title,
-        content: post.content,
-        uri: post.uri,
-        date: post.date,
-        author: {
-          firstName: post.author.node.firstName,
-          lastName: post.author.node.lastName,
-          fullName: post.author.node.name,
-        },
-        featuredImage: {
-          altText: post.featuredImage?.node?.altText || "",
-          sourceUrl: post.featuredImage?.node?.sourceUrl || "",
-          caption: post.featuredImage?.node?.caption || "",
-        },
-        categories: post.categories.nodes.map((category) => ({
-          name: category.name,
-          uri: category.uri,
-        })),
-      };
-    });
 
-    return posts;
+  const organizePosts = (data) => {
+    return data.posts.nodes.map((post) => ({
+      title: post.title,
+      content: post.content,
+      uri: post.uri,
+      date: post.date,
+      author: {
+        firstName: post.author.node.firstName,
+        lastName: post.author.node.lastName,
+        fullName: post.author.node.name,
+      },
+      featuredImage: {
+        altText: post.featuredImage?.node?.altText || "",
+        sourceUrl: post.featuredImage?.node?.sourceUrl || "",
+        caption: post.featuredImage?.node?.caption || "",
+      },
+      categories: post.categories.nodes.map((category) => ({
+        name: category.name,
+        uri: category.uri,
+      })),
+    }));
   };
 
   const organizedPosts = organizePosts(data);
-  //   console.log(organizedPosts);
+
   return <BlogsCotent blogsPost={organizedPosts} />;
 }
